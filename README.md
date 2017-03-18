@@ -9,7 +9,7 @@ Following are the assumptions for this project :
   3. The variable amount accounts for anything unknown that happens during the duration of the portfolio. Currently this ranges within the Risk rate but we can provide weights to this random change to increase the impact.
   4. The inflation amount is calculated on the current investment(starting and then feedback yearly results) every year.
   5. Formula used for every year result calculation is as;
-        Yearly result = Expected return amount + random variable amount - inflation amount
+          # Yearly result = Expected return amount + random variable amount - inflation amount
   6. The input is as mentioned in the project description and the output is displayed in the console when the jar runs.
 
 # Understanding the code
