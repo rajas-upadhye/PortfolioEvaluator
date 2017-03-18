@@ -18,7 +18,7 @@ Following are the assumptions for this project :
   Maven is used to build this project . Command : `mvn clean compile assembly:single`
   
   ## Run : 
-  The above builds the jar for this project . Run the jar with path to the target jar as  "/PortfolioEvaluator/target/portfolio-evaluator-jar-with-dependencies.jar"
+  The above builds the jar for this project . Run the jar with path to the target jar as  `~/PortfolioEvaluator/target/portfolio-evaluator-jar-with-dependencies.jar`
   
   ## Package and Class structure : 
   1. ** com.Entity ** : This package represents the entity based classes as ;
