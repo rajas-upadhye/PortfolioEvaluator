@@ -1,4 +1,4 @@
-# PortfolioEvaluator
+# Portfolio Evaluator
 Portfolio Analysis : This project is focused on basic portfolio analysis.
 
 # Assumptions
