@@ -23,10 +23,10 @@ public class Evaluator {
 
         //analyze aggressive
         log.info("Starting the Aggressive Portfolio analysis...");
-        Result aggresivePerformance = aggressiveExecutor.runAnalysis(aggressiveWrapper);
-        log.info(aggresivePerformance.toString());
+        Result aggressivePerformance = aggressiveExecutor.runAnalysis(aggressiveWrapper);
+        log.info(aggressivePerformance.toString());
         log.info("Done with the Aggressive Portfolio analysis...");
-        //analyze conservtive
+        //analyze conservative
         log.info("Starting the Conservative Portfolio analysis...");
         Result conservativePerformance = conservativeExecutor.runAnalysis(conservativeWrapper);
         log.info(conservativePerformance.toString());

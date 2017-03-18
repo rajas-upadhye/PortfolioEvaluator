@@ -4,9 +4,9 @@ package com.Entity;
  * Created by rajasupadhye on 3/17/17.
  */
 public class Portfolio {
-    String name ;
-    Double returnRate;
-    Double riskRate;
+    private String name ;
+    private Double returnRate;
+    private Double riskRate;
 
     public Portfolio(String portfolioName , Double returnPercent , Double risk ){
         name = portfolioName;

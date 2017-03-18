@@ -14,21 +14,17 @@ import java.util.concurrent.Executors;
  * Created by rajasupadhye on 3/17/17.
  */
 public class PortfolioExecutor {
-    static Logger logger = LoggerFactory.getLogger(PortfolioExecutor.class);
-    static final int SIMULATIONS = 10000;
-    static final int THREADS = 500;
-    static final int TASKS_PER_THREAD = SIMULATIONS/THREADS;
-    static ConcurrentSkipListMap<Double,Double> simulationResult = null;
+    private static Logger logger = LoggerFactory.getLogger(PortfolioExecutor.class);
+    private static final int SIMULATIONS = 10000;
+    private static final int THREADS = 500;
+    private static final int TASKS_PER_THREAD = SIMULATIONS/THREADS;
+    private static ConcurrentSkipListMap<Double,Double> simulationResult = null;
 
-    Result result;
-
-    public PortfolioExecutor(){
-        result = new Result();
-    }
+    public PortfolioExecutor(){}
 
     public Result runAnalysis(PortfolioWrapper portfolioWrapperParam){
         //logger.info("Run Analysis starting ...");
-        simulationResult = new ConcurrentSkipListMap<Double, Double>();
+        simulationResult = new ConcurrentSkipListMap<Double,Double>();
         ExecutorService executorService = Executors.newFixedThreadPool(THREADS);
         Result result = new Result();
         final PortfolioWrapper portfolioWrapper= portfolioWrapperParam;
@@ -41,6 +37,7 @@ public class PortfolioExecutor {
                         //logger.info("Running simulation on " + Thread.currentThread().getName());
                         for(int j = 0 ; j < TASKS_PER_THREAD ; j++){
                             /*
+                            The following will happen for every simulation of every thread every year.
                               1. Set the investment amount
                               2. Calculate a random number from -SD to +SD in % and then change it to amount by applying it to
                                  initial investment amount
@@ -56,19 +53,17 @@ public class PortfolioExecutor {
                             double inflationPercent = portfolioWrapper.getInflation();
                             double minVariationPercent = -1*riskPercent;
 
-                            double variablesPercent = 0.0;
-                            double variablesAmount = 0.0;
-                            double inflationAmount = 0.0;
-                            double expectedReturnAmount = 0.0;
-                            double yearlyResult = 0.0;
+                            double variablesPercent;
+                            double variablesAmount;
+                            double inflationAmount;
+                            double expectedReturnAmount;
+                            double yearlyResult;
 
                             for(int k = 0 ; k < portfolioWrapper.getDuration(); k++){
-                                //logger.info("Calculating year : " + (k+1) + " on simulation : " + Thread.currentThread().getName());
                                 /*
                                 Here to drastically change the variablesAmount random weights can be used so that the
                                 variable amount can impact drastically too.
                                 */
-
                                 variablesPercent = minVariationPercent + (riskPercent - minVariationPercent) * Math.random();
                                 variablesAmount = (investment*variablesPercent)/100;
 
@@ -100,7 +95,7 @@ public class PortfolioExecutor {
         return null;
     }
 
-    public static Result getResult(ConcurrentSkipListMap<Double,Double> input){
+    private static Result getResult(ConcurrentSkipListMap<Double,Double> input){
         Result result = new Result();
         if(input!=null){
             int totalSimulations = input.size();
@@ -143,24 +138,6 @@ public class PortfolioExecutor {
             }
         }
         //logger.info("Done calculating the result ...");
-        return result;
-    }
-
-    public static double getBest(ConcurrentSkipListMap<Double,Double> input){
-        //calculate 10% best or 90th Percentile
-        double result = 0.0;
-        if(input != null){
-
-        }
-        return result;
-    }
-
-    public static double getWorst(ConcurrentSkipListMap<Double,Double> input){
-        //calculate 10%  worst or 10th Percentile
-        double result = 0.0;
-        if(input != null){
-
-        }
         return result;
     }
 }

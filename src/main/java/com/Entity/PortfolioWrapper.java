@@ -4,10 +4,10 @@ package com.Entity;
  * Created by rajasupadhye on 3/17/17.
  */
 public class PortfolioWrapper {
-    Portfolio portfolio ;
-    Double investment;
-    Double duration;
-    Double inflation;
+    private Portfolio portfolio ;
+    private Double investment;
+    private Double duration;
+    private Double inflation;
 
     public PortfolioWrapper(Portfolio p , Double investmentAmount , Double time, Double inflationRate){
         portfolio = p;
