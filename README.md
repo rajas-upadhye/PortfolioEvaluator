@@ -21,11 +21,11 @@ Following are the assumptions for this project :
   The above builds the jar for this project . Run the jar with path to the target jar as  `~/PortfolioEvaluator/target/portfolio-evaluator-jar-with-dependencies.jar`
   
   ## Package and Class structure : 
-  1. ** com.Entity ** : This package represents the entity based classes as ;
+  1. **com.Entity** : This package represents the entity based classes as ;
       a. Portfolio : Stores information directly related with portfolio (Name, Risk and Return).
       b. PortfolioWrapper : Designed to store information indirectly related to the specific Portfolio (Investment amount , Inflation rate, Duration in years). 
       c. Result : To Store the Result (Median , 10% Best and 10% Worst).
-  2. ** com.Service **  : This package represents the service based classes as;
+  2. **com.Service**  : This package represents the service based classes as;
       a. PortfolioExecutor : This class is the core of the application . Here we the method runAnalysis runs the simulations (SIMULATIONS is defined as constant here). The idea is to take PortfolioWrapper object as input and to concurrently spawn threads. Initial 500 threads with 20 simulations each. Each simulation does the calculation for 20 years (this duration is property of the portfolio). Hence total time taken is O(SIMULATIONS).
-  3. ** Evaluator **  : This is the driver class. It contains the main methods. Here we create Portfolio(s), PortfolioWrapper(s) and PortfolioExecutor(s) for different types of portfolios we want to analyze. 
+  3. **Evaluator**  : This is the driver class. It contains the main methods. Here we create Portfolio(s), PortfolioWrapper(s) and PortfolioExecutor(s) for different types of portfolios we want to analyze. 
   
